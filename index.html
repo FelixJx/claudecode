@@ -21,7 +21,10 @@
                 <li><a href="#requirements">环境要求</a></li>
                 <li><a href="#installation">安装步骤</a></li>
                 <li><a href="#configuration">配置</a></li>
+                <li><a href="#usage">使用示例</a></li>
+                <li><a href="#deployment">部署实践</a></li>
                 <li><a href="#troubleshooting">故障排除</a></li>
+                <li><a href="#features">高级功能</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -242,42 +245,96 @@ npm link</code></pre>
                     <div class="step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h3>获取 API 密钥</h3>
-                            <p>首先需要在 Anthropic 注册并获取 API 密钥：</p>
-                            <a href="https://anyrouter.top/register?aff=MOqi" class="btn btn-primary" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                注册获取 API 密钥
-                            </a>
+                            <h3>注册 Any Router 账号</h3>
+                            <p>Any Router 是一个专业的 AI API 代理服务，提供稳定的 Claude API 访问。注册流程如下：</p>
+                            <div class="substeps">
+                                <div class="substep">
+                                    <span class="substep-number">1.1</span>
+                                    <div class="substep-content">
+                                        <h4>访问注册页面</h4>
+                                        <p>点击下方链接访问 Any Router 注册页面：</p>
+                                        <a href="https://anyrouter.top/register?aff=MOqi" class="btn btn-primary" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            立即注册 Any Router
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="substep">
+                                    <span class="substep-number">1.2</span>
+                                    <div class="substep-content">
+                                        <h4>填写注册信息</h4>
+                                        <ul>
+                                            <li>输入有效的邮箱地址</li>
+                                            <li>设置安全密码（建议包含大小写字母、数字和特殊字符）</li>
+                                            <li>完成邮箱验证</li>
+                                            <li>阅读并同意服务条款</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="substep">
+                                    <span class="substep-number">1.3</span>
+                                    <div class="substep-content">
+                                        <h4>获得免费额度</h4>
+                                        <p>注册完成后，系统会自动为新用户赠送 100 美金的 API 调用额度：</p>
+                                        <ul>
+                                            <li>登录 Any Router 控制台</li>
+                                            <li>查看账户余额，确认已获得免费额度</li>
+                                            <li>免费额度足够进行大量的 API 调用测试</li>
+                                            <li>额度用完后可根据需要进行充值</li>
+                                        </ul>
+                                        <div class="note success">
+                                            <i class="fas fa-gift"></i>
+                                            <strong>新用户福利：</strong>注册即送 100 美金 token，无需充值即可开始使用
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h3>配置环境变量</h3>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span>配置文件</span>
-                                    <button class="copy-btn" data-clipboard-target="#env-config">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
+                            <h3>获取 API 密钥</h3>
+                            <p>在 Any Router 控制台获取您的 API 密钥：</p>
+                            <div class="substeps">
+                                <div class="substep">
+                                    <span class="substep-number">2.1</span>
+                                    <div class="substep-content">
+                                        <h4>进入 API 管理</h4>
+                                        <ul>
+                                            <li>登录 Any Router 控制台</li>
+                                            <li>点击左侧菜单「API 管理」</li>
+                                            <li>选择「创建新的 API Key」</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <pre><code id="env-config" class="language-bash"># 临时设置 (当前会话)
-export ANTHROPIC_API_KEY="your-api-key-here"
-
-# 永久设置 (添加到 ~/.bashrc 或 ~/.zshrc)
-echo 'export ANTHROPIC_API_KEY="your-api-key-here"' >> ~/.bashrc
-source ~/.bashrc</code></pre>
-                            </div>
-                            
-                            <div class="platform-notes">
-                                <h4><i class="fab fa-windows"></i> Windows 设置</h4>
-                                <div class="code-block">
-                                    <pre><code class="language-powershell"># PowerShell
-$env:ANTHROPIC_API_KEY="your-api-key-here"
-
-# 永久设置
-[Environment]::SetEnvironmentVariable("ANTHROPIC_API_KEY", "your-api-key-here", "User")</code></pre>
+                                <div class="substep">
+                                    <span class="substep-number">2.2</span>
+                                    <div class="substep-content">
+                                        <h4>配置 API Key</h4>
+                                        <ul>
+                                            <li>设置 API Key 名称（如：claude-code-dev）</li>
+                                            <li>选择权限范围（建议选择 Claude 相关权限）</li>
+                                            <li>设置使用限制（可选，用于成本控制）</li>
+                                            <li>点击「创建」按钮</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="substep">
+                                    <span class="substep-number">2.3</span>
+                                    <div class="substep-content">
+                                        <h4>保存 API Key</h4>
+                                        <div class="note warning">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <strong>重要提醒：</strong>API Key 只会显示一次，请立即复制并妥善保存！
+                                        </div>
+                                        <ul>
+                                            <li>复制生成的 API Key</li>
+                                            <li>将其保存到安全的位置</li>
+                                            <li>不要在代码中硬编码 API Key</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -286,22 +343,184 @@ $env:ANTHROPIC_API_KEY="your-api-key-here"
                     <div class="step">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h3>初始化配置</h3>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span>Terminal</span>
-                                    <button class="copy-btn" data-clipboard-target="#init-config">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
+                            <h3>配置环境变量</h3>
+                            <p>将获取的 API Key 配置为环境变量，支持多种配置方式：</p>
+                            
+                            <div class="substeps">
+                                <div class="substep">
+                                    <span class="substep-number">3.1</span>
+                                    <div class="substep-content">
+                                        <h4><i class="fab fa-apple"></i><i class="fab fa-linux"></i> macOS / Linux 配置</h4>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>Terminal</span>
+                                                <button class="copy-btn" data-clipboard-target="#env-config-unix">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </div>
+                                            <pre><code id="env-config-unix" class="language-bash"># 方法1: 临时设置 (当前会话有效)
+export ANTHROPIC_API_KEY="your-anyrouter-api-key-here"
+export ANTHROPIC_BASE_URL="https://api.anyrouter.top/v1"
+
+# 方法2: 永久设置 (推荐)
+# 对于 Bash 用户
+echo 'export ANTHROPIC_API_KEY="your-anyrouter-api-key-here"' >> ~/.bashrc
+echo 'export ANTHROPIC_BASE_URL="https://api.anyrouter.top/v1"' >> ~/.bashrc
+source ~/.bashrc
+
+# 对于 Zsh 用户 (macOS 默认)
+echo 'export ANTHROPIC_API_KEY="your-anyrouter-api-key-here"' >> ~/.zshrc
+echo 'export ANTHROPIC_BASE_URL="https://api.anyrouter.top/v1"' >> ~/.zshrc
+source ~/.zshrc</code></pre>
+                                        </div>
+                                    </div>
                                 </div>
-                                <pre><code id="init-config" class="language-bash"># 初始化配置
+                                
+                                <div class="substep">
+                                    <span class="substep-number">3.2</span>
+                                    <div class="substep-content">
+                                        <h4><i class="fab fa-windows"></i> Windows 配置</h4>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>PowerShell</span>
+                                                <button class="copy-btn" data-clipboard-target="#env-config-windows">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </div>
+                                            <pre><code id="env-config-windows" class="language-powershell"># 方法1: 临时设置 (当前会话有效)
+$env:ANTHROPIC_API_KEY="your-anyrouter-api-key-here"
+$env:ANTHROPIC_BASE_URL="https://api.anyrouter.top/v1"
+
+# 方法2: 永久设置 (推荐)
+[Environment]::SetEnvironmentVariable("ANTHROPIC_API_KEY", "your-anyrouter-api-key-here", "User")
+[Environment]::SetEnvironmentVariable("ANTHROPIC_BASE_URL", "https://api.anyrouter.top/v1", "User")
+
+# 方法3: 通过系统设置
+# 1. 右键「此电脑」→「属性」
+# 2. 点击「高级系统设置」
+# 3. 点击「环境变量」
+# 4. 在「用户变量」中添加:
+#    变量名: ANTHROPIC_API_KEY
+#    变量值: your-anyrouter-api-key-here
+#    变量名: ANTHROPIC_BASE_URL
+#    变量值: https://api.anyrouter.top/v1</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="substep">
+                                    <span class="substep-number">3.3</span>
+                                    <div class="substep-content">
+                                        <h4>使用 .env 文件 (推荐)</h4>
+                                        <p>在项目根目录创建 <code>.env</code> 文件：</p>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>.env</span>
+                                                <button class="copy-btn" data-clipboard-target="#env-file">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </div>
+                                            <pre><code id="env-file" class="language-bash"># Claude API 配置
+ANTHROPIC_API_KEY=your-anyrouter-api-key-here
+ANTHROPIC_BASE_URL=https://api.anyrouter.top/v1
+
+# 可选配置
+CLAUDE_MODEL=claude-3-5-sonnet-20241022
+CLAUDE_MAX_TOKENS=4096
+CLAUDE_TEMPERATURE=0.7</code></pre>
+                                        </div>
+                                        <div class="note">
+                                            <i class="fas fa-info-circle"></i>
+                                            <strong>注意：</strong>请将 <code>.env</code> 文件添加到 <code>.gitignore</code> 中，避免泄露 API Key。
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>初始化和验证配置</h3>
+                            <p>完成环境变量配置后，初始化 Claude Code 并验证连接：</p>
+                            
+                            <div class="substeps">
+                                <div class="substep">
+                                    <span class="substep-number">4.1</span>
+                                    <div class="substep-content">
+                                        <h4>初始化配置</h4>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>Terminal</span>
+                                                <button class="copy-btn" data-clipboard-target="#init-config">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </div>
+                                            <pre><code id="init-config" class="language-bash"># 初始化 Claude Code 配置
 claude-code init
 
-# 验证配置
+# 如果使用 .env 文件，确保在项目目录中运行
+cd /path/to/your/project
+claude-code init --config-file .env</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="substep">
+                                    <span class="substep-number">4.2</span>
+                                    <div class="substep-content">
+                                        <h4>验证安装和配置</h4>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>Terminal</span>
+                                                <button class="copy-btn" data-clipboard-target="#verify-config">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </div>
+                                            <pre><code id="verify-config" class="language-bash"># 检查版本信息
+claude-code --version
+
+# 查看帮助信息
 claude-code --help
 
-# 测试连接
-claude-code "Hello, Claude!"</code></pre>
+# 检查配置状态
+claude-code config --show
+
+# 测试 API 连接
+claude-code "Hello, Claude! Please respond with a simple greeting."</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="substep">
+                                    <span class="substep-number">4.3</span>
+                                    <div class="substep-content">
+                                        <h4>高级配置选项</h4>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>Terminal</span>
+                                                <button class="copy-btn" data-clipboard-target="#advanced-config">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </div>
+                                            <pre><code id="advanced-config" class="language-bash"># 设置默认模型
+claude-code config --set model claude-3-5-sonnet-20241022
+
+# 设置最大 token 数
+claude-code config --set max-tokens 4096
+
+# 设置温度参数 (0.0-1.0)
+claude-code config --set temperature 0.7
+
+# 设置代理 (如果需要)
+claude-code config --set proxy http://proxy.example.com:8080
+
+# 查看所有配置
+claude-code config --list</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -317,21 +536,237 @@ claude-code "Hello, Claude!"</code></pre>
                     <div class="example">
                         <h3>基础代码生成</h3>
                         <div class="code-block">
-                            <pre><code class="language-bash">claude-code "Create a Python function to calculate fibonacci numbers"</code></pre>
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" data-clipboard-target="#basic-usage">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code id="basic-usage" class="language-bash"># 生成 Python 函数
+claude-code "Create a Python function to calculate fibonacci numbers"
+
+# 生成 JavaScript 组件
+claude-code "Create a React component for user authentication"
+
+# 生成 SQL 查询
+claude-code "Write a SQL query to find top 10 customers by revenue"</code></pre>
                         </div>
                     </div>
 
                     <div class="example">
-                        <h3>代码审查</h3>
+                        <h3>代码审查和优化</h3>
                         <div class="code-block">
-                            <pre><code class="language-bash">claude-code review ./src/main.py</code></pre>
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" data-clipboard-target="#review-usage">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code id="review-usage" class="language-bash"># 审查单个文件
+claude-code review ./src/main.py
+
+# 审查整个项目
+claude-code review ./src --recursive
+
+# 性能优化建议
+claude-code optimize ./src/utils.js
+
+# 安全性检查
+claude-code security-check ./src</code></pre>
                         </div>
                     </div>
 
                     <div class="example">
-                        <h3>交互模式</h3>
+                        <h3>交互模式和项目管理</h3>
                         <div class="code-block">
-                            <pre><code class="language-bash">claude-code -i  # 进入交互模式</code></pre>
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" data-clipboard-target="#interactive-usage">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code id="interactive-usage" class="language-bash"># 进入交互模式
+claude-code -i
+
+# 项目初始化
+claude-code init-project --type web --framework react
+
+# 生成文档
+claude-code docs --input ./src --output ./docs
+
+# 代码重构
+claude-code refactor ./legacy-code --target modern</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h3>高级功能</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" data-clipboard-target="#advanced-usage">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code id="advanced-usage" class="language-bash"># 批量处理
+claude-code batch --input ./tasks.json
+
+# 自定义模板
+claude-code generate --template ./templates/api.template
+
+# 集成到 CI/CD
+claude-code ci --config ./.claude-ci.yml
+
+# 团队协作
+claude-code team --share-config --sync</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="deployment" class="section section-alt">
+            <div class="container">
+                <h2><i class="fas fa-rocket"></i> 部署最佳实践</h2>
+                
+                <div class="deployment-guide">
+                    <div class="deployment-section">
+                        <h3><i class="fas fa-server"></i> 生产环境部署</h3>
+                        <p>在生产环境中部署 Claude Code 需要考虑安全性、性能和可维护性：</p>
+                        
+                        <div class="best-practices">
+                            <div class="practice-item">
+                                <div class="practice-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="practice-content">
+                                    <h4>API 密钥安全管理</h4>
+                                    <ul>
+                                        <li>使用环境变量或密钥管理服务存储 API Key</li>
+                                        <li>定期轮换 API 密钥</li>
+                                        <li>设置 API 使用限制和监控</li>
+                                        <li>不要在代码仓库中提交密钥</li>
+                                    </ul>
+                                    <div class="code-block">
+                                        <pre><code class="language-bash"># 使用 Docker Secrets
+docker secret create claude_api_key /path/to/api_key.txt
+
+# 使用 Kubernetes Secrets
+kubectl create secret generic claude-api \
+  --from-literal=api-key=your-api-key-here</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="practice-item">
+                                <div class="practice-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <div class="practice-content">
+                                    <h4>性能优化配置</h4>
+                                    <ul>
+                                        <li>配置合适的请求超时时间</li>
+                                        <li>实现请求缓存机制</li>
+                                        <li>使用连接池管理</li>
+                                        <li>监控 API 使用量和响应时间</li>
+                                    </ul>
+                                    <div class="code-block">
+                                        <pre><code class="language-yaml"># claude-config.yml
+api:
+  timeout: 30s
+  max_retries: 3
+  cache_ttl: 300s
+  rate_limit: 100/minute
+  
+performance:
+  concurrent_requests: 5
+  batch_size: 10
+  memory_limit: 512MB</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="practice-item">
+                                <div class="practice-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="practice-content">
+                                    <h4>监控和日志</h4>
+                                    <ul>
+                                        <li>配置详细的日志记录</li>
+                                        <li>设置性能指标监控</li>
+                                        <li>实现错误告警机制</li>
+                                        <li>定期分析使用模式</li>
+                                    </ul>
+                                    <div class="code-block">
+                                        <pre><code class="language-bash"># 启用详细日志
+claude-code --log-level debug --log-file /var/log/claude-code.log
+
+# 集成 Prometheus 监控
+claude-code --metrics-port 9090 --metrics-path /metrics</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deployment-section">
+                        <h3><i class="fas fa-users"></i> 团队协作配置</h3>
+                        <p>为团队配置统一的 Claude Code 环境和工作流：</p>
+                        
+                        <div class="team-config">
+                            <div class="config-item">
+                                <h4>共享配置文件</h4>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>.claude-team.yml</span>
+                                        <button class="copy-btn" data-clipboard-target="#team-config">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre><code id="team-config" class="language-yaml"># 团队共享配置
+team:
+  name: "开发团队"
+  api_endpoint: "https://api.anyrouter.top/v1"
+  
+defaults:
+  model: "claude-3-5-sonnet-20241022"
+  max_tokens: 4096
+  temperature: 0.7
+  
+code_style:
+  language: "zh-CN"
+  comment_style: "detailed"
+  naming_convention: "camelCase"
+  
+integrations:
+  git_hooks: true
+  ci_cd: true
+  code_review: true</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="config-item">
+                                <h4>Git 集成</h4>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>Git Hooks</span>
+                                        <button class="copy-btn" data-clipboard-target="#git-hooks">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre><code id="git-hooks" class="language-bash"># 安装 Git hooks
+claude-code install-hooks
+
+# pre-commit hook 自动代码审查
+#!/bin/sh
+claude-code review --staged --auto-fix
+
+# commit-msg hook 生成提交信息
+#!/bin/sh
+claude-code generate-commit-msg --diff</code></pre>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -499,6 +934,72 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+    <script>
+        // 复制功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化复制按钮
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-clipboard-target');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const text = targetElement.textContent;
+                        
+                        // 使用现代的 Clipboard API
+                        if (navigator.clipboard) {
+                            navigator.clipboard.writeText(text).then(() => {
+                                showCopySuccess(this);
+                            }).catch(() => {
+                                fallbackCopyTextToClipboard(text, this);
+                            });
+                        } else {
+                            fallbackCopyTextToClipboard(text, this);
+                        }
+                    }
+                });
+            });
+            
+            // 显示复制成功提示
+            function showCopySuccess(button) {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> 已复制';
+                button.style.background = 'rgba(39, 174, 96, 0.2)';
+                button.style.borderColor = '#27ae60';
+                button.style.color = '#27ae60';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = 'transparent';
+                    button.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                    button.style.color = 'white';
+                }, 2000);
+            }
+            
+            // 备用复制方法
+            function fallbackCopyTextToClipboard(text, button) {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    showCopySuccess(button);
+                } catch (err) {
+                    console.error('复制失败:', err);
+                }
+                
+                document.body.removeChild(textArea);
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
